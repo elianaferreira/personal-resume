@@ -3,32 +3,24 @@ import MoreStories from '../components/more-stories'
 import HeroPost from '../components/hero-post'
 import Intro from '../components/intro'
 import Layout from '../components/layout'
-import { getAllPosts } from '../lib/api'
+import { getAllPosts, getSummary } from '../lib/api'
 import Head from 'next/head'
-import { CMS_NAME } from '../lib/constants'
 
-export default function Index({ allPosts }) {
-  const heroPost = allPosts[0]
-  const morePosts = allPosts.slice(1)
+export default function Index({ allPosts, summaryData }) {
+
   return (
     <>
       <Layout>
         <Head>
-          <title>Next.js Blog Example with {CMS_NAME}</title>
         </Head>
         <Container>
           <Intro />
-          {heroPost && (
-            <HeroPost
-              title={heroPost.title}
-              coverImage={heroPost.coverImage}
-              date={heroPost.date}
-              author={heroPost.author}
-              slug={heroPost.slug}
-              excerpt={heroPost.excerpt}
+          <HeroPost
+              name={summaryData.name}
+              email={summaryData.email}
+              summary={summaryData.summary}
             />
-          )}
-          {morePosts.length > 0 && <MoreStories posts={morePosts} />}
+          {allPosts.length > 0 && <MoreStories posts={allPosts} />}
         </Container>
       </Layout>
     </>
@@ -37,15 +29,20 @@ export default function Index({ allPosts }) {
 
 export async function getStaticProps() {
   const allPosts = getAllPosts([
-    'title',
+    'company',
     'date',
     'slug',
-    'author',
+    'position',
     'coverImage',
-    'excerpt',
+  ])
+  
+  const summaryData = getSummary([
+    'name',
+    'email',
+    'summary',
   ])
 
   return {
-    props: { allPosts },
+    props: { allPosts, summaryData },
   }
 }

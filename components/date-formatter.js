@@ -1,6 +1,5 @@
 import { parseISO, format } from 'date-fns'
 
 export default function DateFormatter({ dateString }) {
-  const date = parseISO(dateString)
-  return <time dateTime={dateString}>{format(date, 'LLLL	d, yyyy')}</time>
+  return <div class="text-sm font-medium text-gray-400">{dateString}</div>
 }
