@@ -27,15 +27,15 @@ export default function Post({ post, morePosts, preview }) {
             <article className="mb-32">
               <Head>
                 <title>
-                  {post.title} | Next.js Blog Example with {CMS_NAME}
+                  {post.company}
                 </title>
-                <meta property="og:image" content={post.ogImage.url} />
+                {/* <meta property="og:image" content={post.ogImage.url} /> */}
               </Head>
               <PostHeader
-                title={post.title}
+                company={post.company}
                 coverImage={post.coverImage}
                 date={post.date}
-                author={post.author}
+                position={post.position}
               />
               <PostBody content={post.content} />
             </article>
@@ -48,13 +48,12 @@ export default function Post({ post, morePosts, preview }) {
 
 export async function getStaticProps({ params }) {
   const post = getPostBySlug(postsDirectory, params.slug, [
-    'title',
+    'company',
     'date',
     'slug',
-    'author',
-    'content',
-    'ogImage',
+    'position',
     'coverImage',
+    'content',
   ])
   const content = await markdownToHtml(post.content || '')
 
