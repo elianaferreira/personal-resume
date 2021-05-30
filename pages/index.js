@@ -3,10 +3,12 @@ import MoreStories from '../components/more-stories'
 import HeroPost from '../components/hero-post'
 import Intro from '../components/intro'
 import Layout from '../components/layout'
-import { getAllPosts, getSummary } from '../lib/api'
+import { getAllPosts, getCertificates, getSummary } from '../lib/api'
 import Head from 'next/head'
+import Box from '../components/box'
+import Certificates from '../components/certificates'
 
-export default function Index({ allPosts, summaryData }) {
+export default function Index({ allPosts, summaryData, certificates }) {
 
   return (
     <>
@@ -21,6 +23,7 @@ export default function Index({ allPosts, summaryData }) {
               summary={summaryData.summary}
             />
           {allPosts.length > 0 && <MoreStories posts={allPosts} />}
+          {certificates.length > 0 && <Certificates certificates={certificates} />}
         </Container>
       </Layout>
     </>
@@ -42,7 +45,13 @@ export async function getStaticProps() {
     'summary',
   ])
 
+  const certificates = getCertificates([
+    'title',
+    'date',
+    'link',
+  ])
+
   return {
-    props: { allPosts, summaryData },
+    props: { allPosts, summaryData, certificates },
   }
 }
