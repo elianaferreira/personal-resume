@@ -14,6 +14,9 @@ export default function Index({ allPosts, summaryData, certificates }) {
     <>
       <Layout>
         <Head>
+          <title>
+            Resume
+          </title>
         </Head>
         <Container>
           <Intro />
