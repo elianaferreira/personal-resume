@@ -1,10 +1,9 @@
 ---
-company: 'Willdom S.A.'
-position: 'Senior Developer'
-coverImage: '/assets/blog/undraw_Dev_focus_re_6iwt.png'
-date: 'September 2017 - Currently'
+company: "Willdom S.A."
+position: "Senior Developer"
+coverImage: "/assets/undraw_Dev_focus_re_6iwt.png"
+date: "September 2017 - Currently"
 ---
-
 
 Redesign of existing system that manages high volumes of data monitoring automobile tracking systems.<br />Technologies: NodeJs, React and PostgreSQL.
 
