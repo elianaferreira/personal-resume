@@ -8,7 +8,7 @@ export default function PostHeader({ company, coverImage, date, position }) {
       <PostTitle>{position} at {company}</PostTitle>
       <div className="hidden md:block md:mb-12">
       </div>
-      <div className="mb-8 md:mb-8 w-3/5 place-self-center mx-auto">
+      <div className="mb-8 md:mb-8 w-2/5 place-self-center mx-auto">
         <CoverImage title={company} src={coverImage} height={100} width={153} />
       </div>
       <div className="max-w-2xl mx-auto">

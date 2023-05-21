@@ -12,13 +12,13 @@ export default function PostPreview({
 }) {
   return (
     <div>
-      <div className="mb-5">
+      <div className="mb-1">
         <CoverImage
           slug={slug}
           title={position}
           src={coverImage}
-          height={315}
-          width={484}
+          height={145}
+          width={230}
         />
       </div>
       <h3 className="text-3xl mb-3 leading-snug">
@@ -30,7 +30,6 @@ export default function PostPreview({
         <DateFormatter dateString={date} />
       </div>
       <p className="text-lg leading-relaxed mb-4">{position}</p>
-      {/* <Avatar name={author.name} picture={author.picture} /> */}
     </div>
   )
 }
